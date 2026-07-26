@@ -1,0 +1,41 @@
+/* Navigation Buttons */
+.swiper-button-prev,
+.swiper-button-next {
+  width: 20px !important;
+  height: 40px !important;
+  background: rgba(255, 255, 255, 0.95);
+  color: #111827 !important;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px !important;
+  font-weight: 700;
+}
+
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: #2563eb;
+  color: #fff !important;
+}
+
+
+.swiper-button-prev {
+  left: 10px !important;
+}
+
+
+.swiper-button-next {
+  right: 10px !important;
+}
+
+/* Disabled Button */
+.swiper-button-disabled {
+  opacity: 0.35 !important;
+  cursor: not-allowed;
+}

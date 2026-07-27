@@ -7,12 +7,14 @@ import "./HomeSectionCarosel.css";
 
 import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 
-const HomeSectionCarosel = () => {
+
+const HomeSectionCarosel = ({data,sectionName}) => {
+  console.log(data)
   return (
     <>
-      <div className="mt-5">
+      <div className="">
         <div className="mb-5 ml-5">
-          <h3 className="text-lg font-medium text-gray-900">Men's Kurta</h3>
+          <h3 className="text-2xl font-extrabold text-gray-900">{sectionName}</h3>
         </div>
         <div>
           <Swiper
@@ -35,9 +37,9 @@ const HomeSectionCarosel = () => {
               },
             }}
           >
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-              <SwiperSlide key={item}>
-                <HomeSectionCard />
+            {data?.slice(0, 10).map((item, index) => (
+              <SwiperSlide key={index}>
+                <HomeSectionCard item={item} />
               </SwiperSlide>
             ))}
           </Swiper>

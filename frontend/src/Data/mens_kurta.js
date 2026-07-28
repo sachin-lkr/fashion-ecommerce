@@ -30,21 +30,6 @@ export const mens_kurta = [
     description: "Soft cotton kurta with modern straight fit."
   },
   {
-    image: "https://images.unsplash.com/photo-1597983073493-88cd35cf03b0?q=80&w=800&auto=format&fit=crop",
-    brand: "W",
-    title: "Printed Kurta",
-    color: "Black",
-    discountPrice: 899,
-    price: 1799,
-    discountPercent: 50,
-    size: ["S", "M", "L"],
-    quantity: 70,
-    topLevelCategory: "Men",
-    secondLevelCategory: "Clothing",
-    thirdLevelCategory: "Kurta",
-    description: "Elegant printed kurta for casual and festive wear."
-  },
-  {
     image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop",
     brand: "Fabindia",
     title: "Linen Kurta",
@@ -208,6 +193,21 @@ export const mens_kurta = [
     secondLevelCategory: "Clothing",
     thirdLevelCategory: "Kurta",
     description: "Classic style kurta with premium stitching."
+  },
+  {
+    image: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=800&auto=format&fit=crop",
+    brand: "Fabindia",
+    title: "Linen Kurta",
+    color: "White",
+    discountPrice: 1499,
+    price: 2999,
+    discountPercent: 50,
+    size: ["M", "L", "XL", "XXL"],
+    quantity: 90,
+    topLevelCategory: "Men",
+    secondLevelCategory: "Clothing",
+    thirdLevelCategory: "Kurta",
+    description: "Premium linen kurta with comfortable regular fit."
   },
   {
     image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?q=80&w=800&auto=format&fit=crop",

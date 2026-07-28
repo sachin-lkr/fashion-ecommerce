@@ -9,7 +9,7 @@ import HomeSectionCard from "../HomeSectionCard/HomeSectionCard";
 
 
 const HomeSectionCarosel = ({data,sectionName}) => {
-  console.log(data)
+  
   return (
     <>
       <div className="">

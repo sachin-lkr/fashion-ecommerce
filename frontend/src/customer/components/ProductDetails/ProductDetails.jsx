@@ -4,6 +4,8 @@ import Box from "@mui/material/Box";
 import Rating from "@mui/material/Rating";
 import ProductReviewCard from "./ProductReviewCard";
 import LinearProgress from "@mui/material/LinearProgress";
+import {mens_kurta} from "../../../Data/mens_kurta.js"
+import HomeSectionCard from "../HomeSectionCard/HomeSectionCard.jsx"
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -338,6 +340,17 @@ export default function ProductDetails() {
               </div>
             </div>
           </div>
+        </section>
+        {/* similer Products */}
+        <section className="pt-10 ">
+          <h1 className="py-5 text-xl font-bold ml-15">Similer Products</h1>
+          <div className=" grid grid-cols-5 gap-5 mx-5">
+            {
+              mens_kurta.map((item,index)=><HomeSectionCard item={item} key={index}/>)
+            }
+
+          </div>
+
         </section>
       </div>
     </div>

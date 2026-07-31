@@ -4,6 +4,7 @@ import HomeCarosel from "./customer/components/HomeCarosel/HomeCarosel"
 import HomePage from './customer/components/pages/HomePage/HomePage'
 import Footer from './customer/components/Footer/Footer'
 import Product from './customer/components/Product/Product'
+import ProductDetails from './customer/components/ProductDetails/ProductDetails'
 
 
 
@@ -14,7 +15,8 @@ function App() {
       <Navigation/>
       <div>
         {/* <HomePage/> */}
-        <Product/>
+        {/* <Product/> */}
+        <ProductDetails/>
       </div>
       <Footer/>
     

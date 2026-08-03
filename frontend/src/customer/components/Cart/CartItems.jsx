@@ -32,7 +32,7 @@ function CartItems() {
             <DoDisturbOnOutlinedIcon />
           </button>
 
-          <span className="text-xl font-semibold">1</span>
+          <span className="text-xl font-semibold px-5 py-1 bg-amber-50">1</span>
 
           <button className=" cursor-pointer text-[#9155fd] hover:text-[#7e3af2] transition-colors duration-300">
             <AddCircleOutlineRoundedIcon />

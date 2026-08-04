@@ -4,7 +4,7 @@ import AddCircleOutlineRoundedIcon from "@mui/icons-material/AddCircleOutlineRou
 
 function CartItems() {
   return (
-    <div className=" p-5 shadow-lg border rounded-md">
+    <div className=" p-5 shadow-lg  rounded-md">
       <div className=" flex items-center">
         <div className="w-[5rem] h-[5rem] lg:w-[9rem] lg:h-[9rem]">
           <img

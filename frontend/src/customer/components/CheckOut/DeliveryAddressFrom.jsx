@@ -30,10 +30,16 @@ function DeliveryAddressFrom() {
       <Grid container spacing={4}>
         <Grid
           size={{ xs: 12, lg: 5 }}
-          className="border rounded-md shadow-md h-[30.5rem] overflow-y-scroll"
+          className=" rounded-md shadow-md h-[30.5rem] overflow-y-scroll"
         >
           <div className="p-5 py-7 border-b cursor-pointer">
             <AddressCard />
+             <button
+                type="submit"
+                className=" mt-2 rounded-sm text-white font-semibold px-1.5 py-2 cursor-pointer bg-[#9155fd] hover:bg-[#7e3af2] transition-colors duration-300"
+              >
+                DELIVERD HERE
+              </button>
           </div>
         </Grid>
         <Grid size={{ xs: 12, lg: 7 }}>

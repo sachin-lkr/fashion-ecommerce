@@ -38,7 +38,7 @@ function Order() {
         </Grid>
         <Grid size={{xs:9}} >
            <div className="space-y-5">
-             <OrderCard/>
+             <OrderCard />
             <OrderCard/>
             <OrderCard/>
             <OrderCard/>

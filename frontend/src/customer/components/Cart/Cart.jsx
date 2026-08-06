@@ -1,7 +1,12 @@
 import React from "react";
 import CartItems from "./CartItems";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
+  const navigate =useNavigate()
+  const handleCheckOut=()=>{
+   navigate("/checkout?step=2")
+  }
   return (
     <div className="mt-5">
       <div className="lg:grid grid-cols-3 lg:px-16 gap-4 relative">
@@ -32,7 +37,7 @@ function Cart() {
               </div>
             </div>
             <div className="w-full bg-[#9155fd] text-white font-semibold flex justify-center py-2 rounded-xl cursor-pointer hover:bg-[#7e3af2] transition-all duration-300 ">
-              <button>CHECK OUT</button>
+              <button onClick={handleCheckOut}>CHECK OUT</button>
             </div>
           </div>
         </div>

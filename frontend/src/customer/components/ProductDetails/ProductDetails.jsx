@@ -6,6 +6,8 @@ import ProductReviewCard from "./ProductReviewCard";
 import LinearProgress from "@mui/material/LinearProgress";
 import {mens_kurta} from "../../../Data/mens_kurta.js"
 import HomeSectionCard from "../HomeSectionCard/HomeSectionCard.jsx"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -74,6 +76,13 @@ function classNames(...classes) {
 }
 
 export default function ProductDetails() {
+  const [selectedColor,setSelectedColor]=useState(product.colors[0])
+  const [selectedSize, setSelectedSize]=useState(product.sizes[2])
+  const navigate = useNavigate();
+  const handelAddToCart =()=>{
+    navigate("/cart")
+
+  }
   return (
     <div className="bg-white">
       <div className="pt-6">
@@ -202,7 +211,7 @@ export default function ProductDetails() {
                   </fieldset>
                 </div>
 
-                <button className="bg-[#9155fd] text-white font-semibold px-4 py-2 rounded-md mt-2 cursor-pointer hover:bg-[#7e3ff2] transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105">
+                <button onClick={handelAddToCart} className="bg-[#9155fd] text-white font-semibold px-4 py-2 rounded-md mt-2 cursor-pointer hover:bg-[#7e3ff2] transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105">
                   Add to Cart
                 </button>
               </form>

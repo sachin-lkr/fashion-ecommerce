@@ -22,13 +22,14 @@ const addressSchema = new mongoose.Schema({
     required: true,
   },
 
-  state: {
-    type: String,
-    required: true,
-  },
 
   pincode: {
     type: Number,
+    required: true,
+  },
+  
+  state: {
+    type: String,
     required: true,
   },
   user:{

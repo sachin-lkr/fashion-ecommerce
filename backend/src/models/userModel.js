@@ -27,21 +27,21 @@ const userSchema = new mongoose.Schema({
     },
     address:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"address"
+        ref:"Address"
     }],
     paymentInformation:[
         {
              type:mongoose.Schema.Types.ObjectId,
-             ref:"payment_Information"
+             ref:"Payment_Information"
         }
     ],
     ratings:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"ratings"
+        ref:"Rating"
     }],
     reviews:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:"ratings"
+        ref:"Rating"
     }],
     createdAt:{
         type:Date,

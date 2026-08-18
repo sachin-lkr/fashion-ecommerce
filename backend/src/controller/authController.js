@@ -1,5 +1,5 @@
 import userService from "../services/userService.js"
-import jwtProvider from "../config/jwtProvider.js"
+import jwtProvider  from "../config/jwtProvider.js";
 import bcrypt from "bcrypt"
 import cartService from "../services/cartService.js"
 
@@ -22,7 +22,8 @@ const register =async (req,res)=>{
 
 
 
-try {
+ const login= async(req,res)=>{
+    try {
     const user =await userService.getUserByEmail(email);
     if(!user){
         return res.status(404).send({message:"user not found with email",email})
@@ -37,7 +38,8 @@ try {
     return res.status(200).send({message:"login success"});
 } catch (error) {
     return res.status(500).send({error:error.message})
-};
+};};
 
 
-export {login ,register}
+const authController= {login ,register}
+export default authController;

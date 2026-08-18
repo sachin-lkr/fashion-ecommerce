@@ -25,4 +25,5 @@ const getAllUsers = async(req,res)=>{
     }
 };
 
-export {getAllUsers,getUserProfile}
+const userController= {getAllUsers,getUserProfile}
+export default userController;

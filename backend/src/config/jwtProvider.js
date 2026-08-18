@@ -10,5 +10,5 @@ const getUserIdFromToken=(token)=>{
     return decodedToken.userId;
 };
 
-
-export {getUserIdFromToken,generateToken};
+ const jwtProvider ={generateToken,getUserIdFromToken};
+export default jwtProvider;

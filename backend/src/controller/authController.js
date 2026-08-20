@@ -1,14 +1,14 @@
 import userService from "../services/userService.js"
 import jwtProvider  from "../config/jwtProvider.js";
 import bcrypt from "bcrypt"
-import cartService from "../services/cartService.js"
+import createCart from "../services/cartService.js"
 
 const register =async (req,res)=>{
   try {
-    const user = await userService.createUser(req,body);
+    const user = await userService.createUser(req.body);
     const jwt = jwtProvider.generateToken(user._id);
 
-    await cartService.createCart(user);
+    await createCart(user);
     return res.status(200).send({jwt,message:"register success"})
     
   } catch (error) {

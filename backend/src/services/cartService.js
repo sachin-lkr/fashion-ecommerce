@@ -1,8 +1,8 @@
-import cart from "../models/cartModel.js"
+import Cart from "../models/cartModel.js"
 const createCart=async(user)=>{
 
   try {
-      const cart = new Cart({user});
+      const cart = new Cart({ user: user._id,});
     const createdCart = await cart.save();
     return createdCart;
     
@@ -12,5 +12,6 @@ const createCart=async(user)=>{
   }
 
 };
+
 
 export default createCart;

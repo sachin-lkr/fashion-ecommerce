@@ -3,16 +3,16 @@ import User from "../models/userModel.js";
 import jwtProvider from "../config/jwtProvider.js";
 const createUser= async(userData)=>{
     try {
-        let {firstName,lastName,email,passowrd}=userData;
+        let {firstName,lastName,email,password}=userData;
 
         const isUserExist=await User.findOne({email});
 
         if(isUserExist){
             throw new Error("user already exist with email",email)
         };
-        passowrd=await bcrypt.hash(passowrd,8)
+        password=await bcrypt.hash(password,8)
 
-        const user= await User.create({firstName,lastName,email,passowrd});
+        const user= await User.create({firstName,lastName,email,password});
         console.log("created user",user);
         return user
     } catch (error) {

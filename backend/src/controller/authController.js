@@ -24,6 +24,7 @@ const register =async (req,res)=>{
 
  const login= async(req,res)=>{
     try {
+        const { email, password } = req.body;
     const user =await userService.getUserByEmail(email);
     if(!user){
         return res.status(404).send({message:"user not found with email",email})

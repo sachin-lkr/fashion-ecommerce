@@ -24,4 +24,4 @@ const addItemToCart = async(req,res)=>{
     }
 };
 
-export {findUserCart,addCartItem};
+export {findUserCart,addItemToCart};

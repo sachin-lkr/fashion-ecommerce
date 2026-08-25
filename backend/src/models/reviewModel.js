@@ -20,5 +20,5 @@ import mongoose from "mongoose"
     },
  });
 
- const Review = mongoose.model.apply("Review",reviewSchema);
+ const Review = mongoose.model("Review",reviewSchema);
 export default Review;

@@ -1,9 +1,9 @@
 import express from "express";
-import {router} from "express";
+const router = express.Router();
 
-import { removeCartItem, updateCartItem } from "../controller/cartItemController.js"
-import authenticate from "../middleware/authenticate";
+import { removeCartItemController, updateCartItemController } from "../controller/cartItemController.js"
+import authenticate from "../middleware/authenticate.js";
 
-router.put("/:id",authenticate,updateCartItem);
-router.delete("/:id",authenticate,removeCartItem);
+router.put("/:id",authenticate,updateCartItemController);
+router.delete("/:id",authenticate,removeCartItemController);
 export default router;

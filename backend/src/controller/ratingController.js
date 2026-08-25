@@ -1,6 +1,6 @@
-import {createRating,getProductRating} from "../services/ratingService";
+import {createRating,getProductRating} from "../services/ratingService.js";
 
-const createRating = async(req,res)=>{
+const createRatingController = async(req,res)=>{
     const user = req.user;
     try {
         const rating = await createRating(req.body,user);
@@ -16,7 +16,7 @@ const createRating = async(req,res)=>{
 };
 
 
-const getAllRating = async(req,res)=>{
+const getAllRatingController = async(req,res)=>{
     const productId = req.params.productId
     const user = req.user;
     try {
@@ -32,4 +32,4 @@ const getAllRating = async(req,res)=>{
 
 };
 
-export {createRating,getAllRating}
+export {createRatingController,getAllRatingController}

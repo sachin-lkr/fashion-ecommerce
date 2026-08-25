@@ -1,7 +1,7 @@
 import {updateCartItems,removeCartItem} from "../services/cartItemsService.js";
 
 
-const updateCartItem=async(req,res)=>{
+const updateCartItemController=async(req,res)=>{
 
     const user = req.user
   try {
@@ -15,7 +15,7 @@ const updateCartItem=async(req,res)=>{
 };
 
 
-const removeCartItem=async(req,res)=>{
+const removeCartItemController=async(req,res)=>{
 
     const user = req.user
   try {
@@ -28,6 +28,6 @@ const removeCartItem=async(req,res)=>{
   }
 };
 
-export{updateCartItem,removeCartItem};
+export{updateCartItemController,removeCartItemController};
 
 

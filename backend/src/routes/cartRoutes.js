@@ -1,9 +1,9 @@
 import express from "express"
-import { router } from "express"
-import { addItemToCart, findUserCart } from "../controller/cartController.js"
+const router = express.Router();
+import { addItemToCartController, findUserCartController } from "../controller/cartController.js"
 import authenticate from "../middleware/authenticate.js"
 
-router.get("/",authenticate,findUserCart);
-router.put("/add",authenticate,addItemToCart)
+router.get("/",authenticate,findUserCartController);
+router.put("/add",authenticate,addItemToCartController)
 
 export default router

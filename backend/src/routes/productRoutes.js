@@ -1,10 +1,10 @@
 import express from "express"
-import {router} from "express"
-import authenticate from "../middleware/authenticate"
-import { findProductById, getAllProducts } from "../controller/productController.js"
+const router = express.Router();
+import authenticate from "../middleware/authenticate.js"
+import { findProductByIdController, getAllProductsController } from "../controller/productController.js"
 
-router.get("/",authenticate,getAllProducts);
-router.get("/:id/:id",authenticate,findProductById);
+router.get("/",authenticate,getAllProductsController);
+router.get("/:id/:id",authenticate,findProductByIdController);
 
 
 export default router;

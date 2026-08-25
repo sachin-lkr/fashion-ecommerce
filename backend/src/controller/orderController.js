@@ -9,7 +9,7 @@ import { createOrder,
   getALLOrders,
   deleteOrder,} from "../services/orderService.js"
 
-  const createOrder = async(req,res)=>{
+  const createOrderController = async(req,res)=>{
     const user= req.user;
     try {
         let createdOrder= await createOrder(user,req.body);
@@ -21,7 +21,7 @@ import { createOrder,
   };
 
 
-    const findOrderById = async(req,res)=>{
+    const findOrderByIdController = async(req,res)=>{
     const user= req.user;
     try {
         let findOrderById= await findOrderById(req.params.id);
@@ -33,7 +33,7 @@ import { createOrder,
   };
 
 
-    const orderHistory = async(req,res)=>{
+    const orderHistoryController = async(req,res)=>{
     const user= req.user;
     try {
         let createdOrder= await usersOrderHistory(user._id);
@@ -44,4 +44,4 @@ import { createOrder,
     }
   };
 
-  export {createOrder,findOrderById,orderHistory}
+  export {createOrderController,findOrderByIdController,orderHistoryController}

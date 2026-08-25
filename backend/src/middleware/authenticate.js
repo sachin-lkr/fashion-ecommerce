@@ -1,4 +1,4 @@
-import jwtProvider from "../config/jwtProvider";
+import {generateToken,getUserIdFromToken} from "../config/jwtProvider.js";
 import {findUserById} from "../services/userService.js"
 
 const authenticate = async(req,res,next)=>{
@@ -9,7 +9,7 @@ const authenticate = async(req,res,next)=>{
             return req.status(404).send({error:"token not found...."})
         }
 
-        const userId = jwtProvider.getUserIdFromToken(token);
+        const userId = getUserIdFromToken(token);
         const user=findUserById(userId);
 
         req.user=user;

@@ -1,6 +1,6 @@
 import {findUserCart,addCartItem} from "../services/cartService.js"
 
-const findUserCart = async(req,res)=>{
+const findUserCartController = async(req,res)=>{
     const user = req.user;
     try {
       const cart = await findUserCart(user._id)
@@ -12,7 +12,7 @@ const findUserCart = async(req,res)=>{
     }
 };
 
-const addItemToCart = async(req,res)=>{
+const addItemToCartController = async(req,res)=>{
     const user = req.user;
     try {
       const cartItem = await addCartItem(user._id,req.body)
@@ -24,4 +24,4 @@ const addItemToCart = async(req,res)=>{
     }
 };
 
-export {findUserCart,addItemToCart};
+export {findUserCartController,addItemToCartController};

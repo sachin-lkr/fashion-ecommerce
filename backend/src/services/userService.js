@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt"
 import User from "../models/userModel.js";
-import jwtProvider from "../config/jwtProvider.js";
+import {generateToken,getUserIdFromToken} from "../config/jwtProvider.js";
 const createUser= async(userData)=>{
     try {
         let {firstName,lastName,email,password}=userData;
@@ -75,11 +75,10 @@ const getAllUser =async ()=>{
     }
 }
 
-const userService= {
+export  {
     createUser,
     findUserById,
     getUserByEmail,
     getUserProfileToken,
     getAllUser,
 };
-export default userService;

@@ -1,6 +1,12 @@
-import userService from "../services/userService.js"
+import  {
+    createUser,
+    findUserById,
+    getUserByEmail,
+    getUserProfileToken,
+    getAllUser,
+} from "../services/userService.js"
 
-const getUserProfile = async (req,res)=>{
+const getUserProfileController = async (req,res)=>{
     try {
         const jwt = req.header.authorization?.split(" ")[1];
 
@@ -8,7 +14,7 @@ const getUserProfile = async (req,res)=>{
             return res.status(404).send({error:"token not found"})
         };
 
-        const user = await userService.getUserProfileToken(jwt);
+        const user = await getUserProfileToken(jwt);
         return res.status(200).send(user)
     } catch (error) {
         return res.status(500).send({error:error.message})
@@ -16,14 +22,13 @@ const getUserProfile = async (req,res)=>{
 };
 
 
-const getAllUsers = async(req,res)=>{
+const getAllUsersController = async(req,res)=>{
     try {
-        const  users= await userService.getAllUser();
+        const  users= await getAllUser();
         return res.status(500).send({error:error.message})
     } catch (error) {
         
     }
 };
 
-const userController= {getAllUsers,getUserProfile}
-export default userController;
+export {getAllUsersController,getUserProfileController}

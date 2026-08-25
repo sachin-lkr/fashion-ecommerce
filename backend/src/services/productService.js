@@ -1,5 +1,5 @@
-import Category from "../models/categoryModel";
-import Product from "../models/productModel";
+import Category from "../models/categoryModel.js";
+import Product from "../models/productModel.js";
 
 const createProduct = async (reqData) => {
   let topLavel = await Category.findOne({ name: reqData.topLavelCategory });

@@ -1,4 +1,4 @@
-import userService from "./userService";
+import {findUserById} from "./userService.js";
 
 
  const updateCartItems = async(userId,cartItemId,cartItemData)=>{
@@ -8,7 +8,7 @@ import userService from "./userService";
             throw new Error(`cart item not found : ${cartItemId}`)
         };
         
-        const user= await userService.findUserById(item.userId)
+        const user= await findUserById(item.userId)
         if(!user){
           throw new Error (`user not found : ${userId}`);
         };
@@ -32,7 +32,7 @@ import userService from "./userService";
  const removeCartItem = async(userId,cartItemId)=>{
     const cartItem = await findCartItemById(cartItemId);
 
-    const user = await userService.findUserById(userId);
+    const user = await findUserById(userId);
     if(user.Id.toString()===cartItem.userId.toString()){
       await cartItem.findByIdAndDelete(cartItemId)
     }else{

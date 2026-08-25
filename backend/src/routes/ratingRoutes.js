@@ -1,11 +1,11 @@
 import express from "express";
-import { router } from "express";
-import authenticate from "../middleware/authenticate";
+const router = express.Router();
+import authenticate from "../middleware/authenticate.js";
 
-import { createRating, getAllRating } from "../controller/ratingController.js";
+import { createRatingController, getAllRatingController } from "../controller/ratingController.js";
 
 
-router.post("/create",authenticate,createRating);
-router.put("/product/:productId",authenticate,getAllRating);
+router.post("/create",authenticate,createRatingController);
+router.put("/product/:productId",authenticate,getAllRatingController);
 
 export default router;

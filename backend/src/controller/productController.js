@@ -3,8 +3,8 @@ import { createProduct,
   updateProduct,
   findProductById,
   getAllProducts,
-  createMultipleProduct,} from "../services/productService";
-const createProduct = async(req,res)=>{
+  createMultipleProduct,} from "../services/productService.js";
+const createProductController = async(req,res)=>{
     try {
         const product = await createProduct(req.body);
          return req.status(201).send(product);
@@ -14,7 +14,7 @@ const createProduct = async(req,res)=>{
 };
 
 
-const deleteProduct = async(req,res)=>{
+const deleteProductController = async(req,res)=>{
     const productId =req.params.id;
     try {
         const product = await deleteProduct(productId);
@@ -25,7 +25,7 @@ const deleteProduct = async(req,res)=>{
 };
 
 
-const updateProduct = async(req,res)=>{
+const updateProductController = async(req,res)=>{
     const productId =req.params.id;
     try {
         const product = await updateProduct(productId,req.body);
@@ -36,7 +36,7 @@ const updateProduct = async(req,res)=>{
 };
 
 
-const findProductById = async(req,res)=>{
+const findProductByIdController = async(req,res)=>{
     const productId =req.params.id;
     try {
         const product = await findProductById(productId);
@@ -47,7 +47,7 @@ const findProductById = async(req,res)=>{
 };
 
 
-const getAllProducts = async(req,res)=>{
+const getAllProductsController = async(req,res)=>{
     const productId =req.params.id;
     try {
         const product = await getAllProducts(req.query);
@@ -57,7 +57,7 @@ const getAllProducts = async(req,res)=>{
     }
 };
 
-const createMultipleProduct = async(req,res)=>{
+const createMultipleProductController = async(req,res)=>{
     const productId =req.params.id;
     try {
         const product = await createMultipleProduct(req.body);
@@ -67,4 +67,4 @@ const createMultipleProduct = async(req,res)=>{
     }
 };
 
-export {createProduct,deleteProduct,updateProduct,findProductById,getAllProducts,createMultipleProduct};
+export {createProductController,deleteProductController,updateProductController,findProductByIdController,getAllProductsController,createMultipleProductController};

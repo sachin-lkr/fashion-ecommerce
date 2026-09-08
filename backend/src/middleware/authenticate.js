@@ -10,7 +10,7 @@ const authenticate = async(req,res,next)=>{
         }
 
         const userId = getUserIdFromToken(token);
-        const user=findUserById(userId);
+        const user=await findUserById(userId);
 
         req.user=user;
     } catch (error) {

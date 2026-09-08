@@ -27,8 +27,8 @@ app.use("/api/admin/products",adminProductsRouter);
 app.use("/api/cart",cartRouter);
 app.use("/api/cart_items",cartItemsRouter);
 app.use("/api/orders",orderRouter);
-app.use("api/reviews",reviewRouter);
-app.use("api/ratings",ratingRouter);
+app.use("/api/reviews",reviewRouter);
+app.use("/api/ratings",ratingRouter);
 app.use("/api/admin/orders",adminOrderRouter);
 
 

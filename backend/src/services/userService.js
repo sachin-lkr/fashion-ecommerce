@@ -8,7 +8,7 @@ const createUser= async(userData)=>{
         const isUserExist=await User.findOne({email});
 
         if(isUserExist){
-            throw new Error("user already exist with email",email)
+            throw new Error(`User already exists with email: ${email}`)
         };
         password=await bcrypt.hash(password,8)
 

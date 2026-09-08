@@ -23,22 +23,58 @@ import {
   ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import AuthModel from "../../Auth/AuthModel.jsx";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser, logout } from "../../../State/Auth/Action.js";
 
 export default Navigation = () => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   const [anchorEl, setAnchorEl] = useState(null);
-
-  const handleOpen = (event) => {
+  const handleAvatarClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-
-  const handleClose = () => {
+  const handleMenuClose = () => {
     setAnchorEl(null);
   };
+  const [openAuthModel, setOpenAuthModel] = useState(false);
+  const auth = useSelector((store) => store.auth);
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  const handleOpen = (event) => {
+    setOpenAuthModel(true);
+  };
+  const handleLogout = (event) => {
+    event.currentTarget.blur();
+
+    setAnchorEl(null);
+
+    dispatch(logout());
+  };
+  const handleClose = () => {
+    setOpenAuthModel(false);
+  };
+  const handleAuthClose = () => {
+    setOpenAuthModel(false);
+  };
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      dispatch(getUser(jwt));
+    }
+  }, [auth.jwt, dispatch]);
+
+  useEffect(() => {
+    // Register/Login successful
+    if (auth.jwt) {
+      handleAuthClose();
+    }
+  }, [auth.jwt]);
 
   return (
     <div className="bg-white">
@@ -300,19 +336,11 @@ export default Navigation = () => {
 
               <div className="ml-auto flex items-center">
                 <div className="flex items-center gap-3">
-                  {!isLoggedIn ? (
-                    // Login nahi hai
-                    <a
-                      href="/login"
-                      className="text-sm font-medium text-gray-700 hover:text-gray-900"
-                    >
-                      Sign In
-                    </a>
-                  ) : (
+                  {auth.jwt ? (
                     <>
                       {/* Avatar */}
                       <Avatar
-                        onMouseEnter={handleOpen}
+                        onClick={handleAvatarClick}
                         className="cursor-pointer"
                         src="https://i.pravatar.cc/150?img=12"
                       />
@@ -321,16 +349,24 @@ export default Navigation = () => {
                       <Menu
                         anchorEl={anchorEl}
                         open={Boolean(anchorEl)}
-                        onClose={handleClose}
-                        MenuListProps={{
-                          onMouseLeave: handleClose,
-                        }}
+                        onClose={handleMenuClose}
+                        MenuListProps={{}}
                       >
                         <MenuItem>Profile</MenuItem>
-                        <MenuItem onClick={()=>navigate("account/order")}>My Orders</MenuItem>
-                        <MenuItem>Logout</MenuItem>
+                        <MenuItem onClick={() => navigate("account/order")}>
+                          My Orders
+                        </MenuItem>
+                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
                       </Menu>
                     </>
+                  ) : (
+                    // Login nahi hai
+                    <button
+                      onClick={handleOpen}
+                      className="text-sm font-medium text-gray-700 hover:text-gray-900"
+                    >
+                      Sign In
+                    </button>
                   )}
                 </div>
 
@@ -363,6 +399,7 @@ export default Navigation = () => {
           </div>
         </nav>
       </header>
+      <AuthModel handleClose={handleAuthClose} open={openAuthModel} />
     </div>
   );
 };

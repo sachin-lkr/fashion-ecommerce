@@ -17,12 +17,16 @@ const registerController = async (req, res) => {
         await createCart(user);
         return res.status(200).send({ jwt, message: "register success" });
     } catch (error) {
-        return res.status(500).send({ error: error.message });
+           console.log("REGISTER ERROR:", error);
+
+    return res.status(500).send({
+        error: error.message,
+    });
     }
 
-    const login = async (req, res) => {
-        const { password, email } = req.body;
-    };
+    // const login = async (req, res) => {
+    //     const { password, email } = req.body;
+    // };
 };
 
 const loginController = async (req, res) => {
@@ -41,8 +45,9 @@ const loginController = async (req, res) => {
         }
 
         const jwt = generateToken(user._id);
-        return res.status(200).send({ message: "login success" });
+        return res.status(200).send({jwt, message: "login success" });
     } catch (error) {
+         console.log("LOGIN ERROR:", error);
         return res.status(500).send({ error: error.message });
     }
 };
